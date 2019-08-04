@@ -1,33 +1,107 @@
-.App {
-  text-align: center;
+.masthead {
+	text-align: center;
+  border-bottom: 1px solid;
+  color:#5BC0EB;  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.main-area {
+  padding: 1em;
+  background-color:#5195ea;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cards {
+	margin: 0;
+	padding: 0;
+  list-style-type: none;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+	display: flex;
+  margin-bottom: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card .details {
+  display: block;
+	width: 100%;
+	padding: 0 1em;
+	text-align: left;
+	text-decoration: none;
+	border: 1px transparent;
+  color: #f7943d;
+  background-color: rgb(26, 26, 26);
+	transition: all .2s;
+}
+
+.card .details:focus,
+.card .details:hover {
+	margin: -5px 5px 5px -5px;
+	box-shadow: 5px 5px 0px 0px #E73FF6;
+}
+
+.play-pause {
+	grid-column: 1;
+	grid-row: 1/3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  padding: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+	font-size: 1.5em;
+  line-height: 1em;
+  color:#F85A3E;
+}
+
+.cards h2 {
+	grid-column: 2;
+	grid-row: 1;
+	padding-top: .5em;
+	align-self: flex-end;
+}
+
+.cards button {
+  background: rgb(26, 26, 26);
+}
+
+.meta {
+	grid-column: 2;
+	grid-row: 2;
+	padding-bottom: 1em;
+}
+
+@supports (grid-area: auto) {
+  
+  @media screen and (min-width: 50em) {
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1em;
+    }
+
+    .card {
+			display: flex;
+			margin-bottom: 0;
+		}
+  
+    .cards .details {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  
   }
-  to {
-    transform: rotate(360deg);
+  
+  .card .details {
+		display: grid;
+		grid-template-columns: 6em auto;
+    grid-template-rows: 1fr 1fr;
+    padding: 0 1em 0 0;
+		text-align: left;
   }
+
 }
+
+
