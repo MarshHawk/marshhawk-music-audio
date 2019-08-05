@@ -7,18 +7,18 @@ function TrackCard(props) {
   let audioElement = React.createRef();
   let playingStyle = {
     "box-shadow": "0 0 5px #ea4335",
-    //padding: '3px 0px 3px 3px',
     margin: "5px 1px 3px 0px",
     border: ".333em solid #ea4335"
   };
 
   function handlePlayClick() {
     let newTrack;
-    console.log(props.track);
+
     if (!props.track) {
       newTrack = props.context.createMediaElementSource(audioElement.current);
       newTrack.connect(props.context.destination);
     }
+
     if (props.context.state === "suspended") props.context.resume();
     audioElement.current.play();
     props.play(props.id, newTrack ? newTrack : props.track);
