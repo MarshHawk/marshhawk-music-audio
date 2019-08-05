@@ -32,12 +32,6 @@
   transition: all 0.2s;
 }
 
-.card .details:focus,
-.card .details:hover {
-  margin: -5px 5px 5px -5px;
-  box-shadow: 5px 5px 0px 0px #e73ff6;
-}
-
 .play-pause {
   grid-column: 1;
   grid-row: 1/3;
