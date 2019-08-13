@@ -5,7 +5,8 @@ const initialState = [
     title: "Ember Rain Dance",
     description: "The sounds of rain dancing on flame",
     isPlaying: false,
-    track: undefined
+    track: undefined,
+    scoreId: 'd1eebff86a4a21a74a35acf9ef619c347cf5c4c8'
   },
   {
     id: "EyesOfTheMoon",
@@ -13,7 +14,8 @@ const initialState = [
     title: "Eyes Of The Moon",
     description: "Inspired by the poem by Pablo Neruda",
     isPlaying: false,
-    track: undefined
+    track: undefined,
+    scoreId: '4e7a449af6b52ee322783e5882f20f8ef55e79a0'
   },
   {
     id: "FyreBeet",
@@ -38,7 +40,7 @@ const initialState = [
     description:
       "Prelude to the melanistic chipmunk that visits me occasionally",
     isPlaying: false,
-    track: undefined
+    track: undefined,
   },
   {
     id: "RainbowSomething",

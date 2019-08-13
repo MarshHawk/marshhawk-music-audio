@@ -1,10 +1,12 @@
 import React from "react";
-import { PlayCircle, PauseCircle } from "styled-icons/feather";
+import { PlayCircle, PauseCircle, BookOpen } from "styled-icons/feather";
 import { connect } from "react-redux";
 import { play, pause } from "../actions";
 
 function TrackCard(props) {
-  let audioElement = React.createRef();
+    const NFClient = window.NFClient;
+    let cardElement = React.createRef();
+    let audioElement = React.createRef();
   let playingStyle = {
     "box-shadow": "0 0 5px #ea4335",
     margin: "5px 1px 3px 0px",
@@ -29,8 +31,19 @@ function TrackCard(props) {
     props.pause(props.id);
   }
 
+  function handleShowScoreClick(scoreId) {
+    NFClient.init(function(info) {
+      });
+    var options = {
+        width: cardElement.current.offsetWidth,
+      };
+      var scoreView = new NFClient.ScoreView(scoreId, scoreId, options);
+  }
+
+  
+
   return (
-    <li className="card" style={props.isPlaying ? playingStyle : {}}>
+    <li className="card" ref={cardElement} style={props.isPlaying ? playingStyle : {}}>
       <audio
         id={props.id}
         src={props.url}
@@ -51,7 +64,14 @@ function TrackCard(props) {
         )}
         <h2>{props.title}</h2>
         <div className="meta">{props.description}</div>
+        {props.scoreId && <button className="show-score" onClick={() =>handleShowScoreClick(props.scoreId)}>
+            <BookOpen />
+            Show Score
+          </button>
+        }
+        <div id={props.scoreId} ></div>
       </div>
+      
     </li>
   );
 }
